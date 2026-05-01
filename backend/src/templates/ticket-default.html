@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 675px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+      .ticket {
+        position: relative;
+        width: 1200px;
+        height: 675px;
+        color: #0b172a;
+        background-image: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.5)
+          ),
+          url("{{BACKGROUND_URL}}");
+        background-size: cover;
+        background-position: center;
+      }
+      .content {
+        position: absolute;
+        inset: 48px;
+        border: 2px solid rgba(11, 23, 42, 0.12);
+        border-radius: 28px;
+        backdrop-filter: blur(1px);
+      }
+      .event {
+        position: absolute;
+        top: 64px;
+        left: 80px;
+        right: 360px;
+        font-size: 48px;
+        font-weight: 700;
+      }
+      .guest-label {
+        position: absolute;
+        top: 190px;
+        left: 80px;
+        color: #475569;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .guest-name {
+        position: absolute;
+        top: 225px;
+        left: 80px;
+        right: 360px;
+        font-size: 54px;
+        font-weight: 700;
+        line-height: 1.1;
+        word-break: break-word;
+      }
+      .uuid {
+        position: absolute;
+        left: 80px;
+        bottom: 86px;
+        color: #334155;
+        font-size: 24px;
+        letter-spacing: 0.8px;
+      }
+      .qr-wrap {
+        position: absolute;
+        right: 92px;
+        top: 142px;
+        width: 300px;
+        height: 300px;
+        border-radius: 24px;
+        background: #ffffff;
+        border: 1px solid rgba(11, 23, 42, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .qr-wrap img {
+        width: 260px;
+        height: 260px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ticket">
+      <div class="content"></div>
+      <div class="event">{{EVENT_NAME}}</div>
+      <div class="guest-label">Guest</div>
+      <div class="guest-name">{{GUEST_NAME}}</div>
+      <div class="uuid">Ticket: {{TICKET_UUID}}</div>
+      <div class="qr-wrap">
+        <img src="{{QR_DATA_URL}}" alt="Ticket QR" />
+      </div>
+    </div>
+  </body>
+</html>

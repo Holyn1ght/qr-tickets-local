@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Local event tickets backend MVP",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "seed": "tsx src/scripts/seed.ts",
+    "seed:random": "tsx src/scripts/generate-random-tickets.ts",
+    "setup:browser": "npx puppeteer browsers install",
+    "setup:https": "mkdir -p ../certs && openssl req -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -keyout ../certs/localhost-key.pem -out ../certs/localhost-cert.pem -subj \"/CN=localhost\" -addext \"subjectAltName=DNS:localhost,IP:127.0.0.1,IP:::1\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "puppeteer": "^24.42.0",
+    "qrcode": "^1.5.4",
+    "uuid": "^14.0.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "@types/qrcode": "^1.5.6",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}

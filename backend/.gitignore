@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+storage/app.db
+storage/tickets/*.png
+!storage/tickets/.gitkeep
