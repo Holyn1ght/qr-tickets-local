@@ -1,84 +1,90 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ticket</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <style>
-      * {
-        box-sizing: border-box;
-      }
+        * {
+            box-sizing: border-box;
+        }
 
-      html,
-      body {
-        margin: 0;
-        width: 1080px;
-        height: 1920px;
-      }
+        html,
+        body {
+            margin: 0;
+            width: 1080px;
+            height: 1920px;
+        }
 
-      .ticket {
-        position: relative;
-        width: 1080px;
-        height: 1920px;
-        background-image: url("{{BACKGROUND_URL}}");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
+        .ticket {
+            position: relative;
+            width: 1080px;
+            height: 1920px;
+            background-image: url("../../assets/ticket-background.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-      .center-content {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        text-align: center;
-      }
+        .center-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            text-align: center;
+        }
 
-      .qr {
-        width: 540px;
-        height: 540px;
-        object-fit: contain;
-      }
+        .qr {
+            width: 750px;
+            height: 750px;
+            object-fit: contain;
 
-      .rubik-moonrocks-regular {
-        font-family: "Rubik Moonrocks", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
+            background-color: aliceblue;
+        }
 
-      .guest-name {
-        max-width: 80%;
-        color: #ff8d1a;
-        font-size: 48px;
-        line-height: 1.05;
-        letter-spacing: 0.5px;
-        word-break: break-word;
-      }
 
-      .ticket-uuid {
-        color: #8f8f8f;
-        font-family: Arial, sans-serif;
-        font-size: 18px;
-        letter-spacing: 0.4px;
-      }
+        .comfortaa-bold {
+            font-family: "Comfortaa", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .guest-name {
+            max-width: 80%;
+            color: #ff8d1a;
+            font-size: 97px;
+            line-height: 1.05;
+            letter-spacing: 0.5px;
+            word-break: break-word;
+        }
+
+        .ticket-uuid {
+            color: #8f8f8f;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            letter-spacing: 0.4px;
+
+            padding-bottom: 100px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="ticket">
-      <div class="center-content">
-        <img class="qr" src="{{QR_DATA_URL}}" alt="Ticket QR" />
-        <div class="guest-name rubik-moonrocks-regular">{{GUEST_NAME}}</div>
-        <div class="ticket-uuid">{{TICKET_UUID}}</div>
-      </div>
+        <div class="center-content">
+            <div class="guest-name comfortaa-bold">{{GUEST_NAME}}</div>
+            <div class="ticket-uuid">{{TICKET_UUID}}</div>
+            <img class="qr" src="{{QR_DATA_URL}}" alt="Ticket QR" />
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
