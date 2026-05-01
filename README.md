@@ -52,7 +52,6 @@ qr-tickets-local/
 cd backend
 cp .env.example .env
 npm install
-npm run setup:browser
 npm run dev
 ```
 
@@ -62,6 +61,22 @@ Notes:
 - SQLite DB file: `backend/storage/app.db`
 - Generated tickets: `backend/storage/tickets/*.png`
 - Put your own background at `backend/assets/ticket-background.png` (optional but recommended)
+- Browser for ticket rendering is not auto-downloaded on `npm install`; use system Chrome/Chromium or run `npm run setup:browser`.
+
+### WSL/Linux Notes
+
+If ticket generation cannot find a browser, install Chromium:
+
+```bash
+sudo apt update
+sudo apt install -y chromium-browser || sudo apt install -y chromium
+```
+
+If needed, set explicit browser path in `backend/.env`:
+
+```bash
+PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+```
 
 ## Frontend Setup
 

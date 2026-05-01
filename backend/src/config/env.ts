@@ -20,6 +20,7 @@ export const env = {
   ticketBackgroundPath: resolveFromRoot(
     process.env.TICKET_BACKGROUND_PATH ?? "./assets/ticket-background.png"
   ),
+  puppeteerExecutablePath: process.env.PUPPETEER_EXECUTABLE_PATH?.trim() || null,
   adminPins: splitPins(process.env.ADMIN_PINS ?? "1234"),
   eventName: process.env.EVENT_NAME ?? "Local Event",
 };

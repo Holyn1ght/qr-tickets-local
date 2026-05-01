@@ -9,7 +9,7 @@
     "start": "node dist/server.js",
     "seed": "tsx src/scripts/seed.ts",
     "seed:random": "tsx src/scripts/generate-random-tickets.ts",
-    "setup:browser": "npx puppeteer browsers install",
+    "setup:browser": "npx puppeteer browsers install chrome@stable",
     "setup:https": "mkdir -p ../certs && openssl req -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes -keyout ../certs/localhost-key.pem -out ../certs/localhost-cert.pem -subj \"/CN=localhost\" -addext \"subjectAltName=DNS:localhost,IP:127.0.0.1,IP:::1\""
   },
   "keywords": [],
