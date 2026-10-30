@@ -48,7 +48,7 @@ const onSave = () => {
         <input v-model="guestName" type="text" maxlength="120" />
       </div>
       <div class="field">
-        <label>Note (optional)</label>
+        <label>Примечание для организаторов (не печатается на билете)</label>
         <textarea v-model="note" rows="3" maxlength="500" />
       </div>
       <div class="modal-actions">

@@ -101,6 +101,25 @@ For iOS camera access:
 - trust the self-signed certificate in Safari when prompted
 - frontend calls backend through Vite proxy (`/api -> http://127.0.0.1:4000`)
 
+## Importing a Guest List
+
+On the Tickets Admin page, enter your PIN and click **Импорт гостей**. Upload an
+Excel `.xlsx` file (up to 5 MB) with an **Имя** (or **ФИО**) header and an optional
+**Доп. информация** (or **Примечание**) column. Use one guest per row. Notes and
+names are read from separate columns without interpreting their contents.
+Select a worksheet if the workbook contains several sheets. Review the parsed
+names and notes, then click **Импортировать**. Names and notes can be edited in the
+preview. Resolve invalid rows (for example, missing names) before importing.
+
+Matching names (ignoring case and extra spaces) are skipped by default, including
+duplicates within the file. Disable this option when distinct people share a name.
+The importer creates tickets sequentially with the existing QR/PNG generation and
+shows progress. Keep the page open until it finishes. If a request fails, import
+stops and reports the line; earlier tickets remain saved. Retry with duplicate
+skipping enabled to avoid recreating tickets already saved by the server.
+
+Parser checks (Node.js 22.18+): `cd frontend && node --test tests/*.test.mjs`.
+
 ## Seed Data
 
 ```bash

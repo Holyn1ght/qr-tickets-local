@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 import axios from "axios";
 import PinGate from "../components/PinGate.vue";
 import TicketFormModal from "../components/TicketFormModal.vue";
+import GuestImportModal from "../components/GuestImportModal.vue";
 import {
   createTicket,
   deleteTicket,
@@ -27,6 +28,7 @@ const creating = ref(false);
 const editModalOpen = ref(false);
 const editingTicket = ref<Ticket | null>(null);
 const modalLoading = ref(false);
+const importModalOpen = ref(false);
 
 const setApiError = (error: unknown, fallback: string) => {
   if (axios.isAxiosError(error)) {
@@ -149,6 +151,7 @@ watch(
       <div class="card">
         <div class="toolbar">
           <h2>Tickets Admin</h2>
+          <button class="btn" :disabled="!isAuthorized || creating" @click="importModalOpen = true">Импорт гостей</button>
         </div>
 
         <div class="create-inline">
@@ -273,6 +276,11 @@ watch(
       </div>
     </section>
 
+    <GuestImportModal
+      :open="importModalOpen"
+      @close="importModalOpen = false"
+      @imported="loadTickets"
+    />
     <TicketFormModal
       :open="editModalOpen"
       title="Edit ticket"
